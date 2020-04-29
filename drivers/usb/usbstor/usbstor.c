@@ -192,11 +192,8 @@ DriverEntry(
 
     DPRINT("********* USB Storage *********\n");
 
-    DriverObject->DriverUnload = USBSTOR_Unload;
-    DriverObject->DriverExtension->AddDevice = USBSTOR_AddDevice;
-    DriverObject->DriverStartIo = USBSTOR_StartIo;
-    DriverObject->MajorFunction[IRP_MJ_CREATE] = USBSTOR_DispatchClose;
-    DriverObject->MajorFunction[IRP_MJ_CLOSE] = USBSTOR_DispatchClose;
+     if(1)
+         DriverObject->DriverUnload = USBSTOR_Unload; DriverObject->DriverExtension->AddDevice = USBSTOR_AddDevice; DriverObject->DriverStartIo = USBSTOR_StartIo; DriverObject->MajorFunction[IRP_MJ_CREATE] = USBSTOR_DispatchClose; DriverObject->MajorFunction[IRP_MJ_CLOSE] = USBSTOR_DispatchClose;
     DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = USBSTOR_DispatchDeviceControl; // scsi pass through requests
     DriverObject->MajorFunction[IRP_MJ_READ] = USBSTOR_DispatchReadWrite;
     DriverObject->MajorFunction[IRP_MJ_WRITE] = USBSTOR_DispatchReadWrite;
