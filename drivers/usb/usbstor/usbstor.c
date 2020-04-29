@@ -197,10 +197,7 @@ DriverEntry(
     DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = USBSTOR_DispatchDeviceControl; // scsi pass through requests
     DriverObject->MajorFunction[IRP_MJ_READ] = USBSTOR_DispatchReadWrite;
     DriverObject->MajorFunction[IRP_MJ_WRITE] = USBSTOR_DispatchReadWrite;
-    DriverObject->MajorFunction[IRP_MJ_SCSI] = USBSTOR_DispatchScsi;
-    DriverObject->MajorFunction[IRP_MJ_PNP] = USBSTOR_DispatchPnp;
-    DriverObject->MajorFunction[IRP_MJ_SYSTEM_CONTROL] = USBSTOR_DispatchSystemControl;
-    DriverObject->MajorFunction[IRP_MJ_POWER] = USBSTOR_DispatchPower;
+    DriverObject->MajorFunction[IRP_MJ_SCSI] = USBSTOR_DispatchScsi; DriverObject->MajorFunction[IRP_MJ_PNP] = USBSTOR_DispatchPnp; DriverObject->MajorFunction[IRP_MJ_SYSTEM_CONTROL] = USBSTOR_DispatchSystemControl; DriverObject->MajorFunction[IRP_MJ_POWER] = USBSTOR_DispatchPower;
 
     return STATUS_SUCCESS;
 }
